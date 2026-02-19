@@ -128,7 +128,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noErrorTruncation"
   },
-  "type": "module",
+  "type": "commonjs",
   "types": "dist/index.d.ts",
   "version": "0.7.0",
   "peerDependencies": {

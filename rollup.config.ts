@@ -67,9 +67,10 @@ export const buildLibrary = (dest: string): RollupOptions => ({
     {
       dir: dest,
       extend: true,
-      format: 'esm',
+      format: 'cjs',
       entryFileNames: '[name].js',
       chunkFileNames: '_shared/[name]-[hash].js',
+      exports: 'named',
     },
   ],
 });
