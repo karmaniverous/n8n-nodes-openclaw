@@ -49,26 +49,33 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/mjs/index.js"
+      "default": "./dist/index.js"
     }
   },
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/karmaniverous/npm-package-template-ts#readme",
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/OpenClawApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/OpenClaw/OpenClaw.node.js"
+    ]
+  },
+  "homepage": "https://github.com/karmaniverous/n8n-nodes-openclaw#readme",
   "keywords": [
-    "eslint",
-    "lefthook",
-    "npm",
-    "prettier",
-    "rollup",
-    "template",
-    "typescript",
-    "vitest"
+    "n8n-community-node-package",
+    "n8n",
+    "openclaw",
+    "ai-agent",
+    "gateway",
+    "automation"
   ],
   "license": "BSD-3-Clause",
-  "main": "dist/mjs/index.js",
-  "module": "dist/mjs/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "name": "n8n-nodes-openclaw",
   "publishConfig": {
     "access": "public"
@@ -123,5 +130,8 @@
   },
   "type": "module",
   "types": "dist/index.d.ts",
-  "version": "0.7.0"
+  "version": "0.7.0",
+  "peerDependencies": {
+    "n8n-workflow": "^2.9.0"
+  }
 }

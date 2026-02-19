@@ -42,25 +42,34 @@ const commonAliases: Alias[] = [];
  * Externalize runtime dependencies and peers.
  */
 const commonInputOptions: InputOptions = {
-  input: 'src/index.ts',
+  input: {
+    index: 'src/index.ts',
+    'credentials/OpenClawApi.credentials':
+      'src/credentials/OpenClawApi.credentials.ts',
+    'nodes/OpenClaw/OpenClaw.node': 'src/nodes/OpenClaw/OpenClaw.node.ts',
+    'nodes/OpenClaw/toolSchemas': 'src/nodes/OpenClaw/toolSchemas.ts',
+  },
   external: [
     ...Object.keys((pkg as unknown as Package).dependencies ?? {}),
     ...Object.keys((pkg as unknown as Package).peerDependencies ?? {}),
     'tslib',
+    /^n8n-/,
   ],
   plugins: [aliasPlugin({ entries: commonAliases }), ...commonPlugins],
 };
 
 /**
- * Build the library (ESM only).
+ * Build the library (ESM only) with preserved entry points.
  */
 export const buildLibrary = (dest: string): RollupOptions => ({
   ...commonInputOptions,
   output: [
     {
-      dir: `${dest}/mjs`,
+      dir: dest,
       extend: true,
       format: 'esm',
+      entryFileNames: '[name].js',
+      chunkFileNames: '_shared/[name]-[hash].js',
     },
   ],
 });

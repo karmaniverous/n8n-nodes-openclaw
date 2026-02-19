@@ -1,7 +1,7 @@
-/**
- * This is the main entry point for the library.
- *
- * @packageDocumentation
- */
-
-export { foo, type FooTarget } from './foo';
+export { OpenClawApi } from './credentials/OpenClawApi.credentials.js';
+export { OpenClaw } from './nodes/OpenClaw/OpenClaw.node.js';
+export type {
+  ToolParameterDef,
+  ToolSchema,
+} from './nodes/OpenClaw/toolSchemas.js';
+export { toolSchemas } from './nodes/OpenClaw/toolSchemas.js';
