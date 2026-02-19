@@ -6,6 +6,7 @@ import jsonPlugin from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescriptPlugin from '@rollup/plugin-typescript';
 import type { InputOptions, RollupOptions } from 'rollup';
+import copyPlugin from 'rollup-plugin-copy';
 import dtsPlugin from 'rollup-plugin-dts';
 
 const require = createRequire(import.meta.url);
@@ -55,7 +56,18 @@ const commonInputOptions: InputOptions = {
     'tslib',
     /^n8n-/,
   ],
-  plugins: [aliasPlugin({ entries: commonAliases }), ...commonPlugins],
+  plugins: [
+    aliasPlugin({ entries: commonAliases }),
+    ...commonPlugins,
+    copyPlugin({
+      targets: [
+        {
+          src: 'src/nodes/OpenClaw/openclaw.svg',
+          dest: 'dist/nodes/OpenClaw',
+        },
+      ],
+    }),
+  ],
 };
 
 /**
