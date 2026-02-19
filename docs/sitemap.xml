@@ -2,30 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://docs.karmanivero.us/npm-package-template-ts/index.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 	<url>
 		<loc>https://docs.karmanivero.us/npm-package-template-ts/modules.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 	<url>
 		<loc>https://docs.karmanivero.us/npm-package-template-ts/hierarchy.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 	<url>
 		<loc>https://docs.karmanivero.us/npm-package-template-ts/documents/CHANGELOG.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 	<url>
 		<loc>https://docs.karmanivero.us/npm-package-template-ts/modules/index.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 	<url>
-		<loc>https://docs.karmanivero.us/npm-package-template-ts/types/index.FooTarget.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<loc>https://docs.karmanivero.us/npm-package-template-ts/classes/index.OpenClaw.html</loc>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 	<url>
-		<loc>https://docs.karmanivero.us/npm-package-template-ts/functions/index.foo.html</loc>
-		<lastmod>2025-09-21T12:40:16.425Z</lastmod>
+		<loc>https://docs.karmanivero.us/npm-package-template-ts/classes/index.OpenClawApi.html</loc>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
+	</url>
+	<url>
+		<loc>https://docs.karmanivero.us/npm-package-template-ts/interfaces/index.ToolParameterDef.html</loc>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
+	</url>
+	<url>
+		<loc>https://docs.karmanivero.us/npm-package-template-ts/interfaces/index.ToolSchema.html</loc>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
+	</url>
+	<url>
+		<loc>https://docs.karmanivero.us/npm-package-template-ts/variables/index.toolSchemas.html</loc>
+		<lastmod>2026-02-19T12:09:45.611Z</lastmod>
 	</url>
 </urlset>
