@@ -1,0 +1,12 @@
+{
+  "entry": ["src/**/index.ts"],
+  "ignoreBinaries": ["plantuml"],
+  "project": ["*/**", "!docs/**"],
+  "rules": {
+    "exports": "off",
+    "types": "off"
+  },
+  "vitest": {
+    "entry": ["*/**/*.test.!(*.*)"]
+  }
+}

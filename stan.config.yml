@@ -1,0 +1,27 @@
+stan-core:
+  stanPath: .stan
+  excludes:
+    - docs
+    - package-lock.json
+  includes: []
+stan-cli:
+  cliDefaults:
+    run:
+      facets: false
+      plan: false
+      sequential: true
+  patchOpenCommand: code -g {file}
+  scripts:
+    typecheck: npm run typecheck -- --noErrorTruncation
+    lint:
+      script: npm run lint:fix
+      warnPattern: \\d+:\\d+\\s+warning
+    test: npm run test -- --no-color
+    diagrams: npm run diagrams
+    docs:
+      script: npm run docs -- --emit none
+      warnPattern: \\[warning\\]
+    build: cross-env NO_COLOR=1 npm run build
+    knip:
+      script: npm run knip
+      warnPattern: hints

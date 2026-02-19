@@ -1,0 +1,73 @@
+{
+  "[markdown]": {
+    "editor.wordWrap": "bounded"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "files.eol": "\n",
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "javascript.preferences.importModuleSpecifierEnding": "minimal",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "plantuml.diagramsRoot": "diagrams/src",
+  "plantuml.exportFormat": "",
+  "plantuml.exportIncludeFolderHeirarchy": true,
+  "plantuml.exportOutDir": "diagrams/out",
+  "plantuml.exportSubFolder": false,
+  "plantuml.render": "Local",
+  "prettier.prettierPath": "./node_modules/prettier",
+  "prettier.singleQuote": true,
+  "todo-tree.filtering.ignoreGitSubmodules": false,
+  "todo-tree.filtering.includeHiddenFiles": false,
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.statusBar": "tags",
+  "todo-tree.general.statusBarClickBehaviour": "reveal",
+  "todo-tree.general.tags": ["BUG", "TODO", "TECHDEBT"],
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "background": "#FF0000",
+      "icon": "bug",
+      "iconColour": "#FF0000"
+    },
+    "TECHDEBT": {
+      "background": "#FF9900",
+      "icon": "alert",
+      "iconColour": "#FF9900"
+    },
+    "TODO": {
+      "icon": "check"
+    }
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "background": "#999999",
+    "fontWeight": "bold",
+    "foreground": "#FFFFFF",
+    "gutterIcon": true,
+    "iconColour": "#999999",
+    "type": "whole-line"
+  },
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.regex.subTagRegex": "",
+  "todo-tree.tree.buttons.groupBySubTag": false,
+  "todo-tree.tree.disableCompactFolders": false,
+  "todo-tree.tree.groupedBySubTag": false,
+  "todo-tree.tree.groupedByTag": true,
+  "todo-tree.tree.hideIconsWhenGroupedByTag": true,
+  "todo-tree.tree.labelFormat": "${tag} ${after}",
+  "todo-tree.tree.showCountsInTree": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "yaml.format.singleQuote": true
+}
