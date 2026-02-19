@@ -1,0 +1,23 @@
+{
+  "name": "memory_search",
+  "label": "Memory Search",
+  "description": "Semantically search agent memory files (MEMORY.md and memory/*.md) for relevant context. Returns top matching snippets with file paths and line numbers.",
+  "parameters": {
+    "query": {
+      "type": "string",
+      "required": true,
+      "description": "Search query to find relevant memory snippets",
+      "placeholder": "e.g. project architecture decisions"
+    },
+    "maxResults": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of results to return"
+    },
+    "minScore": {
+      "type": "number",
+      "required": false,
+      "description": "Minimum relevance score threshold (0-1)"
+    }
+  }
+}

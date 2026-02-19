@@ -1,0 +1,19 @@
+{
+  "name": "session_status",
+  "label": "Session Status",
+  "description": "Retrieve session status including model info, usage statistics, time, and cost. Can also set a per-session model override.",
+  "parameters": {
+    "sessionKey": {
+      "type": "string",
+      "required": false,
+      "description": "Session key or session ID to query. Defaults to the current session.",
+      "placeholder": "e.g. slack:channel:C01234"
+    },
+    "model": {
+      "type": "string",
+      "required": false,
+      "description": "Set a model override for this session. Use 'default' to reset.",
+      "placeholder": "e.g. anthropic/claude-sonnet-4-20250514 or 'default'"
+    }
+  }
+}

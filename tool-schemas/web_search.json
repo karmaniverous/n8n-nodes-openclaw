@@ -1,0 +1,40 @@
+{
+  "name": "web_search",
+  "label": "Web Search",
+  "description": "Search the web using Brave Search or Perplexity Sonar. Returns titles, URLs, and snippets for research and fact-checking.",
+  "parameters": {
+    "query": {
+      "type": "string",
+      "required": true,
+      "description": "Search query string",
+      "placeholder": "e.g. OpenClaw n8n integration"
+    },
+    "count": {
+      "type": "number",
+      "required": false,
+      "description": "Number of results to return (1-10)",
+      "default": 5
+    },
+    "country": {
+      "type": "string",
+      "required": false,
+      "description": "2-letter country code for region-specific results (e.g. 'US', 'DE', 'ALL')",
+      "default": "US"
+    },
+    "search_lang": {
+      "type": "string",
+      "required": false,
+      "description": "ISO language code for search results (e.g. 'en', 'de', 'fr')"
+    },
+    "ui_lang": {
+      "type": "string",
+      "required": false,
+      "description": "ISO language code for UI elements"
+    },
+    "freshness": {
+      "type": "string",
+      "required": false,
+      "description": "Filter by discovery time (Brave only). Values: 'pd' (past 24h), 'pw' (past week), 'pm' (past month), 'py' (past year), or 'YYYY-MM-DDtoYYYY-MM-DD'"
+    }
+  }
+}

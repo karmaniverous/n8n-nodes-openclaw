@@ -1,0 +1,177 @@
+{
+  "name": "browser",
+  "label": "Browser",
+  "description": "Control a web browser instance — open pages, take screenshots, capture accessibility snapshots, click elements, fill forms, and more. Supports local, sandbox, and node-hosted browsers.",
+  "actions": [
+    "status", "start", "stop", "profiles", "tabs", "open", "focus", "close",
+    "snapshot", "screenshot", "navigate", "console", "pdf", "upload", "dialog", "act"
+  ],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "status", "start", "stop", "profiles", "tabs", "open", "focus", "close",
+        "snapshot", "screenshot", "navigate", "console", "pdf", "upload", "dialog", "act"
+      ],
+      "description": "The browser operation to perform"
+    },
+    "target": {
+      "type": "string",
+      "required": false,
+      "enum": ["sandbox", "host", "node"],
+      "description": "Where the browser runs: sandbox, host machine, or a paired node"
+    },
+    "node": {
+      "type": "string",
+      "required": false,
+      "description": "Node ID or name when target is 'node'"
+    },
+    "profile": {
+      "type": "string",
+      "required": false,
+      "description": "Browser profile name (e.g. 'chrome', 'openclaw')"
+    },
+    "targetUrl": {
+      "type": "string",
+      "required": false,
+      "description": "URL to open or navigate to",
+      "displayOptions": { "show": { "action": ["open", "navigate"] } }
+    },
+    "targetId": {
+      "type": "string",
+      "required": false,
+      "description": "Tab/target ID to interact with",
+      "displayOptions": { "show": { "action": ["focus", "close", "snapshot", "screenshot", "navigate", "console", "pdf", "act"] } }
+    },
+    "limit": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of results to return"
+    },
+    "maxChars": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum characters for snapshot content"
+    },
+    "mode": {
+      "type": "string",
+      "required": false,
+      "enum": ["efficient"],
+      "description": "Snapshot mode",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "snapshotFormat": {
+      "type": "string",
+      "required": false,
+      "enum": ["aria", "ai"],
+      "description": "Format for accessibility snapshots",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "refs": {
+      "type": "string",
+      "required": false,
+      "enum": ["role", "aria"],
+      "description": "Reference style for snapshot elements",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "interactive": {
+      "type": "boolean",
+      "required": false,
+      "description": "Include interactive elements only in snapshot",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "compact": {
+      "type": "boolean",
+      "required": false,
+      "description": "Return compact snapshot output",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "depth": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum depth for snapshot tree"
+    },
+    "selector": {
+      "type": "string",
+      "required": false,
+      "description": "CSS selector to scope the snapshot or screenshot"
+    },
+    "frame": {
+      "type": "string",
+      "required": false,
+      "description": "Frame name or URL to target within the page"
+    },
+    "labels": {
+      "type": "boolean",
+      "required": false,
+      "description": "Include labels in snapshot output"
+    },
+    "fullPage": {
+      "type": "boolean",
+      "required": false,
+      "description": "Capture full page screenshot (not just viewport)",
+      "displayOptions": { "show": { "action": ["screenshot"] } }
+    },
+    "ref": {
+      "type": "string",
+      "required": false,
+      "description": "Element reference for act operations",
+      "displayOptions": { "show": { "action": ["act"] } }
+    },
+    "element": {
+      "type": "string",
+      "required": false,
+      "description": "Element identifier"
+    },
+    "type": {
+      "type": "string",
+      "required": false,
+      "enum": ["png", "jpeg"],
+      "description": "Image format for screenshots",
+      "displayOptions": { "show": { "action": ["screenshot"] } }
+    },
+    "level": {
+      "type": "string",
+      "required": false,
+      "description": "Console log level filter",
+      "displayOptions": { "show": { "action": ["console"] } }
+    },
+    "paths": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "File paths for upload",
+      "displayOptions": { "show": { "action": ["upload"] } }
+    },
+    "inputRef": {
+      "type": "string",
+      "required": false,
+      "description": "Input element reference for file upload",
+      "displayOptions": { "show": { "action": ["upload"] } }
+    },
+    "timeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout in milliseconds for the operation"
+    },
+    "accept": {
+      "type": "boolean",
+      "required": false,
+      "description": "Accept or dismiss a dialog",
+      "displayOptions": { "show": { "action": ["dialog"] } }
+    },
+    "promptText": {
+      "type": "string",
+      "required": false,
+      "description": "Text to enter in a prompt dialog",
+      "displayOptions": { "show": { "action": ["dialog"] } }
+    },
+    "request": {
+      "type": "object",
+      "required": false,
+      "description": "Action request object for 'act' operations. Contains kind (click/type/press/hover/drag/select/fill/resize/wait/evaluate/close), ref, text, key, etc.",
+      "displayOptions": { "show": { "action": ["act"] } }
+    }
+  }
+}

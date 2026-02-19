@@ -1,0 +1,214 @@
+{
+  "name": "nodes",
+  "label": "Nodes",
+  "description": "Discover and control paired nodes — check status, send notifications, capture photos/video, get location, run commands, and invoke custom node capabilities.",
+  "actions": [
+    "status", "describe", "pending", "approve", "reject", "notify",
+    "camera_snap", "camera_list", "camera_clip", "screen_record",
+    "location_get", "run", "invoke"
+  ],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "status", "describe", "pending", "approve", "reject", "notify",
+        "camera_snap", "camera_list", "camera_clip", "screen_record",
+        "location_get", "run", "invoke"
+      ],
+      "description": "The node operation to perform"
+    },
+    "node": {
+      "type": "string",
+      "required": false,
+      "description": "Node ID or display name to target"
+    },
+    "requestId": {
+      "type": "string",
+      "required": false,
+      "description": "Pairing request ID for approve/reject",
+      "displayOptions": { "show": { "action": ["approve", "reject"] } }
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "description": "Notification title",
+      "displayOptions": { "show": { "action": ["notify"] } }
+    },
+    "body": {
+      "type": "string",
+      "required": false,
+      "description": "Notification body text",
+      "displayOptions": { "show": { "action": ["notify"] } }
+    },
+    "sound": {
+      "type": "string",
+      "required": false,
+      "description": "Notification sound name",
+      "displayOptions": { "show": { "action": ["notify"] } }
+    },
+    "priority": {
+      "type": "string",
+      "required": false,
+      "enum": ["passive", "active", "timeSensitive"],
+      "description": "Notification priority level",
+      "displayOptions": { "show": { "action": ["notify"] } }
+    },
+    "delivery": {
+      "type": "string",
+      "required": false,
+      "enum": ["system", "overlay", "auto"],
+      "description": "Notification delivery method",
+      "displayOptions": { "show": { "action": ["notify"] } }
+    },
+    "facing": {
+      "type": "string",
+      "required": false,
+      "enum": ["front", "back", "both"],
+      "description": "Camera facing direction. camera_snap supports front/back/both; camera_clip supports front/back only.",
+      "displayOptions": { "show": { "action": ["camera_snap", "camera_clip"] } }
+    },
+    "maxWidth": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum image width in pixels",
+      "displayOptions": { "show": { "action": ["camera_snap"] } }
+    },
+    "quality": {
+      "type": "number",
+      "required": false,
+      "description": "Image quality (0-100)",
+      "displayOptions": { "show": { "action": ["camera_snap"] } }
+    },
+    "deviceId": {
+      "type": "string",
+      "required": false,
+      "description": "Specific camera device ID",
+      "displayOptions": { "show": { "action": ["camera_snap", "camera_clip"] } }
+    },
+    "duration": {
+      "type": "string",
+      "required": false,
+      "description": "Recording duration as a string (e.g. '10s', '1m')",
+      "displayOptions": { "show": { "action": ["camera_clip", "screen_record"] } }
+    },
+    "durationMs": {
+      "type": "number",
+      "required": false,
+      "description": "Recording duration in milliseconds",
+      "displayOptions": { "show": { "action": ["camera_clip", "screen_record"] } }
+    },
+    "includeAudio": {
+      "type": "boolean",
+      "required": false,
+      "description": "Include audio in recording",
+      "displayOptions": { "show": { "action": ["screen_record"] } }
+    },
+    "fps": {
+      "type": "number",
+      "required": false,
+      "description": "Frames per second for recording",
+      "displayOptions": { "show": { "action": ["screen_record"] } }
+    },
+    "screenIndex": {
+      "type": "number",
+      "required": false,
+      "description": "Screen index for multi-monitor setups",
+      "displayOptions": { "show": { "action": ["screen_record"] } }
+    },
+    "delayMs": {
+      "type": "number",
+      "required": false,
+      "description": "Delay before capturing"
+    },
+    "outPath": {
+      "type": "string",
+      "required": false,
+      "description": "Output file path for recordings"
+    },
+    "desiredAccuracy": {
+      "type": "string",
+      "required": false,
+      "enum": ["coarse", "balanced", "precise"],
+      "description": "Location accuracy level",
+      "displayOptions": { "show": { "action": ["location_get"] } }
+    },
+    "maxAgeMs": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum age of cached location in milliseconds",
+      "displayOptions": { "show": { "action": ["location_get"] } }
+    },
+    "locationTimeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout for location request in milliseconds",
+      "displayOptions": { "show": { "action": ["location_get"] } }
+    },
+    "command": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Command and arguments to run on the node",
+      "displayOptions": { "show": { "action": ["run"] } }
+    },
+    "cwd": {
+      "type": "string",
+      "required": false,
+      "description": "Working directory for the command",
+      "displayOptions": { "show": { "action": ["run"] } }
+    },
+    "env": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Environment variables as KEY=VALUE pairs",
+      "displayOptions": { "show": { "action": ["run"] } }
+    },
+    "commandTimeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout for command execution in milliseconds",
+      "displayOptions": { "show": { "action": ["run"] } }
+    },
+    "needsScreenRecording": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the command needs screen recording permission",
+      "displayOptions": { "show": { "action": ["run"] } }
+    },
+    "invokeCommand": {
+      "type": "string",
+      "required": false,
+      "description": "Custom command name to invoke on the node",
+      "displayOptions": { "show": { "action": ["invoke"] } }
+    },
+    "invokeParamsJson": {
+      "type": "string",
+      "required": false,
+      "description": "JSON string of parameters for the invoke command",
+      "displayOptions": { "show": { "action": ["invoke"] } }
+    },
+    "invokeTimeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout for invoke in milliseconds",
+      "displayOptions": { "show": { "action": ["invoke"] } }
+    },
+    "timeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "General timeout in milliseconds"
+    },
+    "gatewayUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway URL"
+    },
+    "gatewayToken": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway authentication token"
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "name": "message",
+  "label": "Message",
+  "description": "Send, delete, and manage messages via channel plugins (Slack, Discord, Telegram, etc.). Supports sending text, media, reactions, polls, threads, pins, moderation, and more.",
+  "actions": [
+    "send", "broadcast", "poll", "react", "reactions", "read", "edit", "unsend", "reply",
+    "sendWithEffect", "renameGroup", "setGroupIcon", "addParticipant", "removeParticipant",
+    "leaveGroup", "sendAttachment", "delete", "pin", "unpin", "list-pins", "permissions",
+    "thread-create", "thread-list", "thread-reply", "search", "sticker", "sticker-search",
+    "member-info", "role-info", "emoji-list", "emoji-upload", "sticker-upload",
+    "role-add", "role-remove", "channel-info", "channel-list", "channel-create",
+    "channel-edit", "channel-delete", "channel-move", "category-create", "category-edit",
+    "category-delete", "voice-status", "event-list", "event-create", "timeout", "kick",
+    "ban", "set-presence"
+  ],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "send", "broadcast", "poll", "react", "reactions", "read", "edit", "unsend", "reply",
+        "sendWithEffect", "renameGroup", "setGroupIcon", "addParticipant", "removeParticipant",
+        "leaveGroup", "sendAttachment", "delete", "pin", "unpin", "list-pins", "permissions",
+        "thread-create", "thread-list", "thread-reply", "search", "sticker", "sticker-search",
+        "member-info", "role-info", "emoji-list", "emoji-upload", "sticker-upload",
+        "role-add", "role-remove", "channel-info", "channel-list", "channel-create",
+        "channel-edit", "channel-delete", "channel-move", "category-create", "category-edit",
+        "category-delete", "voice-status", "event-list", "event-create", "timeout", "kick",
+        "ban", "set-presence"
+      ],
+      "description": "The messaging operation to perform"
+    },
+    "channel": {
+      "type": "string",
+      "required": false,
+      "description": "Channel plugin to use (e.g. 'slack', 'discord', 'telegram')"
+    },
+    "target": {
+      "type": "string",
+      "required": false,
+      "description": "Target channel/user ID or name"
+    },
+    "targets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Multiple recipient/channel targets"
+    },
+    "accountId": {
+      "type": "string",
+      "required": false,
+      "description": "Account ID to send as"
+    },
+    "message": {
+      "type": "string",
+      "required": false,
+      "description": "Message text content",
+      "displayOptions": { "show": { "action": ["send", "broadcast", "reply", "edit", "thread-reply", "sendWithEffect"] } }
+    },
+    "messageId": {
+      "type": "string",
+      "required": false,
+      "description": "Message ID to target for edit, delete, react, pin operations",
+      "displayOptions": { "show": { "action": ["edit", "delete", "react", "pin", "unpin"] } }
+    },
+    "media": {
+      "type": "string",
+      "required": false,
+      "description": "Media URL or local file path to attach",
+      "displayOptions": { "show": { "action": ["send", "sendAttachment", "reply", "thread-reply"] } }
+    },
+    "filePath": {
+      "type": "string",
+      "required": false,
+      "description": "Local file path for attachment",
+      "displayOptions": { "show": { "action": ["send", "sendAttachment", "reply", "thread-reply"] } }
+    },
+    "buffer": {
+      "type": "string",
+      "required": false,
+      "description": "Base64-encoded file content for attachments"
+    },
+    "filename": {
+      "type": "string",
+      "required": false,
+      "description": "Filename for the attachment"
+    },
+    "contentType": {
+      "type": "string",
+      "required": false,
+      "description": "MIME type of the attachment"
+    },
+    "caption": {
+      "type": "string",
+      "required": false,
+      "description": "Caption for media attachments"
+    },
+    "replyTo": {
+      "type": "string",
+      "required": false,
+      "description": "Message ID to reply to"
+    },
+    "threadId": {
+      "type": "string",
+      "required": false,
+      "description": "Thread ID for thread operations"
+    },
+    "emoji": {
+      "type": "string",
+      "required": false,
+      "description": "Emoji for reactions",
+      "displayOptions": { "show": { "action": ["react"] } }
+    },
+    "remove": {
+      "type": "boolean",
+      "required": false,
+      "description": "Remove a reaction instead of adding",
+      "displayOptions": { "show": { "action": ["react"] } }
+    },
+    "limit": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of messages to read",
+      "displayOptions": { "show": { "action": ["read", "search", "thread-list"] } }
+    },
+    "before": {
+      "type": "string",
+      "required": false,
+      "description": "Read messages before this message ID",
+      "displayOptions": { "show": { "action": ["read"] } }
+    },
+    "after": {
+      "type": "string",
+      "required": false,
+      "description": "Read messages after this message ID",
+      "displayOptions": { "show": { "action": ["read"] } }
+    },
+    "query": {
+      "type": "string",
+      "required": false,
+      "description": "Search query string",
+      "displayOptions": { "show": { "action": ["search", "sticker-search"] } }
+    },
+    "pollQuestion": {
+      "type": "string",
+      "required": false,
+      "description": "Question text for the poll",
+      "displayOptions": { "show": { "action": ["poll"] } }
+    },
+    "pollOption": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Poll answer options",
+      "displayOptions": { "show": { "action": ["poll"] } }
+    },
+    "pollDurationHours": {
+      "type": "number",
+      "required": false,
+      "description": "Poll duration in hours",
+      "displayOptions": { "show": { "action": ["poll"] } }
+    },
+    "silent": {
+      "type": "boolean",
+      "required": false,
+      "description": "Send without triggering notifications"
+    },
+    "asVoice": {
+      "type": "boolean",
+      "required": false,
+      "description": "Send audio as a voice message"
+    },
+    "effectId": {
+      "type": "string",
+      "required": false,
+      "description": "Message effect ID (e.g. 'invisible-ink', 'balloons')",
+      "displayOptions": { "show": { "action": ["sendWithEffect"] } }
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name for channel/category create or rename operations"
+    },
+    "threadName": {
+      "type": "string",
+      "required": false,
+      "description": "Thread name for thread-create",
+      "displayOptions": { "show": { "action": ["thread-create"] } }
+    },
+    "channelId": {
+      "type": "string",
+      "required": false,
+      "description": "Channel ID filter for searches and thread lists"
+    },
+    "reason": {
+      "type": "string",
+      "required": false,
+      "description": "Reason for moderation actions",
+      "displayOptions": { "show": { "action": ["timeout", "kick", "ban"] } }
+    },
+    "userId": {
+      "type": "string",
+      "required": false,
+      "description": "User ID for moderation or member operations"
+    },
+    "dryRun": {
+      "type": "boolean",
+      "required": false,
+      "description": "Preview the operation without executing it"
+    },
+    "timeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout in milliseconds for the operation"
+    },
+    "gatewayUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway URL"
+    },
+    "gatewayToken": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway authentication token"
+    }
+  }
+}

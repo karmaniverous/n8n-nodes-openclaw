@@ -1,0 +1,25 @@
+{
+  "name": "web_fetch",
+  "label": "Web Fetch",
+  "description": "Fetch and extract readable content from a URL. Converts HTML to markdown or plain text for lightweight page access without browser automation.",
+  "parameters": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "description": "HTTP or HTTPS URL to fetch",
+      "placeholder": "https://example.com/page"
+    },
+    "extractMode": {
+      "type": "string",
+      "required": false,
+      "enum": ["markdown", "text"],
+      "description": "Content extraction mode",
+      "default": "markdown"
+    },
+    "maxChars": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum characters to return (truncates when exceeded, minimum: 100)"
+    }
+  }
+}

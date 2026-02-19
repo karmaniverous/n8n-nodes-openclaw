@@ -1,0 +1,34 @@
+{
+  "name": "sessions_send",
+  "label": "Sessions Send",
+  "description": "Send a message into another session by session key or label. Used for cross-session and agent-to-agent communication.",
+  "parameters": {
+    "message": {
+      "type": "string",
+      "required": true,
+      "description": "The message text to send"
+    },
+    "sessionKey": {
+      "type": "string",
+      "required": false,
+      "description": "Target session key. Provide either sessionKey or label, not both.",
+      "placeholder": "e.g. slack:channel:C01234"
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Target session label. Provide either sessionKey or label, not both."
+    },
+    "agentId": {
+      "type": "string",
+      "required": false,
+      "description": "Agent ID to scope label lookup to a specific agent"
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout in seconds for the send operation (0 = fire-and-forget)",
+      "default": 30
+    }
+  }
+}

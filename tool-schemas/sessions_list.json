@@ -1,0 +1,28 @@
+{
+  "name": "sessions_list",
+  "label": "Sessions List",
+  "description": "List active sessions with optional filters by kind, recency, and message preview.",
+  "parameters": {
+    "kinds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Filter by session kinds: main, group, cron, hook, node, other"
+    },
+    "limit": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of sessions to return (minimum: 1)"
+    },
+    "activeMinutes": {
+      "type": "number",
+      "required": false,
+      "description": "Only include sessions active within this many minutes (minimum: 1)"
+    },
+    "messageLimit": {
+      "type": "number",
+      "required": false,
+      "description": "Number of recent messages to include per session (minimum: 0)"
+    }
+  }
+}

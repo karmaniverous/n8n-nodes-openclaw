@@ -1,0 +1,6 @@
+{
+  "name": "agents_list",
+  "label": "Agents List",
+  "description": "List available agent IDs that can be targeted with sessions_spawn, based on configured allowlists.",
+  "parameters": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "sessions_spawn",
+  "label": "Sessions Spawn",
+  "description": "Spawn a background sub-agent in an isolated session. The sub-agent runs the given task and announces results back to the requester.",
+  "parameters": {
+    "task": {
+      "type": "string",
+      "required": true,
+      "description": "The task description for the sub-agent to execute"
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Human-readable label for the spawned session"
+    },
+    "agentId": {
+      "type": "string",
+      "required": false,
+      "description": "Agent ID to run the sub-agent as (must be in allowlist)"
+    },
+    "model": {
+      "type": "string",
+      "required": false,
+      "description": "Model override for the sub-agent (e.g. 'anthropic/claude-sonnet-4-20250514')"
+    },
+    "thinking": {
+      "type": "string",
+      "required": false,
+      "description": "Thinking/reasoning level for the sub-agent (e.g. 'low', 'medium', 'high', 'off')"
+    },
+    "runTimeoutSeconds": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum runtime for the sub-agent in seconds (0 = no limit)",
+      "default": 0
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "required": false,
+      "description": "Legacy alias for runTimeoutSeconds",
+      "default": 0
+    },
+    "cleanup": {
+      "type": "string",
+      "required": false,
+      "enum": ["delete", "keep"],
+      "description": "Whether to delete or keep the sub-agent session after completion",
+      "default": "keep"
+    }
+  }
+}

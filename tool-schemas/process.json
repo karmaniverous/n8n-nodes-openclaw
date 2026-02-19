@@ -1,0 +1,76 @@
+{
+  "name": "process",
+  "label": "Process Manager",
+  "description": "Manage running exec sessions — list active processes, poll for output, read logs, write stdin, send keystrokes, or kill processes.",
+  "actions": ["list", "poll", "log", "write", "send-keys", "submit", "paste", "kill"],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": ["list", "poll", "log", "write", "send-keys", "submit", "paste", "kill"],
+      "description": "The process management operation to perform"
+    },
+    "sessionId": {
+      "type": "string",
+      "required": false,
+      "description": "Session ID of the exec process to target (required for all actions except list)",
+      "displayOptions": { "show": { "action": ["poll", "log", "write", "send-keys", "submit", "paste", "kill"] } }
+    },
+    "data": {
+      "type": "string",
+      "required": false,
+      "description": "Data to write to stdin",
+      "displayOptions": { "show": { "action": ["write"] } }
+    },
+    "eof": {
+      "type": "boolean",
+      "required": false,
+      "description": "Close stdin after writing",
+      "displayOptions": { "show": { "action": ["write"] } }
+    },
+    "keys": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Key tokens to send (e.g. ['Enter', 'Tab'])",
+      "displayOptions": { "show": { "action": ["send-keys"] } }
+    },
+    "hex": {
+      "type": "array",
+      "items": { "type": "string" },
+      "required": false,
+      "description": "Hex-encoded bytes to send",
+      "displayOptions": { "show": { "action": ["send-keys"] } }
+    },
+    "literal": {
+      "type": "string",
+      "required": false,
+      "description": "Literal string to send as keystrokes",
+      "displayOptions": { "show": { "action": ["send-keys"] } }
+    },
+    "text": {
+      "type": "string",
+      "required": false,
+      "description": "Text to paste into the terminal",
+      "displayOptions": { "show": { "action": ["paste"] } }
+    },
+    "bracketed": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wrap paste in bracketed paste mode",
+      "displayOptions": { "show": { "action": ["paste"] } }
+    },
+    "offset": {
+      "type": "number",
+      "required": false,
+      "description": "Log read offset",
+      "displayOptions": { "show": { "action": ["log"] } }
+    },
+    "limit": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum log lines to return",
+      "displayOptions": { "show": { "action": ["log"] } }
+    }
+  }
+}

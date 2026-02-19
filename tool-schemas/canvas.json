@@ -1,0 +1,113 @@
+{
+  "name": "canvas",
+  "label": "Canvas",
+  "description": "Control canvas overlays on paired nodes — present web content, navigate, evaluate JavaScript, capture snapshots, and push A2UI updates.",
+  "actions": ["present", "hide", "navigate", "eval", "snapshot", "a2ui_push", "a2ui_reset"],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": ["present", "hide", "navigate", "eval", "snapshot", "a2ui_push", "a2ui_reset"],
+      "description": "The canvas operation to perform"
+    },
+    "node": {
+      "type": "string",
+      "required": false,
+      "description": "Target node ID or name"
+    },
+    "target": {
+      "type": "string",
+      "required": false,
+      "description": "URL to present in the canvas",
+      "displayOptions": { "show": { "action": ["present"] } }
+    },
+    "url": {
+      "type": "string",
+      "required": false,
+      "description": "URL to navigate the canvas to",
+      "displayOptions": { "show": { "action": ["navigate"] } }
+    },
+    "javaScript": {
+      "type": "string",
+      "required": false,
+      "description": "JavaScript code to evaluate in the canvas",
+      "displayOptions": { "show": { "action": ["eval"] } }
+    },
+    "x": {
+      "type": "number",
+      "required": false,
+      "description": "X position for canvas placement",
+      "displayOptions": { "show": { "action": ["present"] } }
+    },
+    "y": {
+      "type": "number",
+      "required": false,
+      "description": "Y position for canvas placement",
+      "displayOptions": { "show": { "action": ["present"] } }
+    },
+    "width": {
+      "type": "number",
+      "required": false,
+      "description": "Canvas width in pixels",
+      "displayOptions": { "show": { "action": ["present"] } }
+    },
+    "height": {
+      "type": "number",
+      "required": false,
+      "description": "Canvas height in pixels",
+      "displayOptions": { "show": { "action": ["present"] } }
+    },
+    "outputFormat": {
+      "type": "string",
+      "required": false,
+      "enum": ["png", "jpg", "jpeg"],
+      "description": "Image format for snapshot output",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "maxWidth": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum width for snapshot image",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "quality": {
+      "type": "number",
+      "required": false,
+      "description": "JPEG quality (0-100) for snapshot",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "delayMs": {
+      "type": "number",
+      "required": false,
+      "description": "Delay in milliseconds before capturing snapshot",
+      "displayOptions": { "show": { "action": ["snapshot"] } }
+    },
+    "jsonl": {
+      "type": "string",
+      "required": false,
+      "description": "JSONL content for A2UI push",
+      "displayOptions": { "show": { "action": ["a2ui_push"] } }
+    },
+    "jsonlPath": {
+      "type": "string",
+      "required": false,
+      "description": "Path to JSONL file for A2UI push",
+      "displayOptions": { "show": { "action": ["a2ui_push"] } }
+    },
+    "timeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout in milliseconds for the operation"
+    },
+    "gatewayUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway URL"
+    },
+    "gatewayToken": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway authentication token"
+    }
+  }
+}

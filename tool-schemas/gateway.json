@@ -1,0 +1,69 @@
+{
+  "name": "gateway",
+  "label": "Gateway",
+  "description": "Manage the OpenClaw gateway — restart, read or update configuration, and trigger in-place updates.",
+  "actions": ["restart", "config.get", "config.schema", "config.apply", "config.patch", "update.run"],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": ["restart", "config.get", "config.schema", "config.apply", "config.patch", "update.run"],
+      "description": "The gateway operation to perform"
+    },
+    "raw": {
+      "type": "string",
+      "required": false,
+      "description": "Full YAML/JSON config string for config.apply, or partial patch for config.patch",
+      "displayOptions": { "show": { "action": ["config.apply", "config.patch"] } }
+    },
+    "baseHash": {
+      "type": "string",
+      "required": false,
+      "description": "Config hash for optimistic concurrency on config.apply",
+      "displayOptions": { "show": { "action": ["config.apply"] } }
+    },
+    "delayMs": {
+      "type": "number",
+      "required": false,
+      "description": "Delay in milliseconds before restarting",
+      "displayOptions": { "show": { "action": ["restart"] } }
+    },
+    "reason": {
+      "type": "string",
+      "required": false,
+      "description": "Reason for the restart or update",
+      "displayOptions": { "show": { "action": ["restart", "update.run"] } }
+    },
+    "note": {
+      "type": "string",
+      "required": false,
+      "description": "Optional note attached to the operation"
+    },
+    "sessionKey": {
+      "type": "string",
+      "required": false,
+      "description": "Session key for delivery context on restart"
+    },
+    "restartDelayMs": {
+      "type": "number",
+      "required": false,
+      "description": "Delay before restart after config write",
+      "displayOptions": { "show": { "action": ["config.apply", "config.patch"] } }
+    },
+    "timeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout in milliseconds for the operation"
+    },
+    "gatewayUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway URL"
+    },
+    "gatewayToken": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway authentication token"
+    }
+  }
+}

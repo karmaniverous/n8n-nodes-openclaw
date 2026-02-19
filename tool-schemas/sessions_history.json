@@ -1,0 +1,24 @@
+{
+  "name": "sessions_history",
+  "label": "Sessions History",
+  "description": "Retrieve conversation history for a session. Returns recent messages with optional tool call inclusion.",
+  "parameters": {
+    "sessionKey": {
+      "type": "string",
+      "required": true,
+      "description": "Session key to retrieve history for",
+      "placeholder": "e.g. slack:channel:C01234"
+    },
+    "limit": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of messages to return (minimum: 1)"
+    },
+    "includeTools": {
+      "type": "boolean",
+      "required": false,
+      "description": "Include tool call/result messages in the output",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "memory_get",
+  "label": "Memory Get",
+  "description": "Read a snippet from a memory file (MEMORY.md or memory/*.md) with optional line range. Use after memory_search to pull specific content.",
+  "parameters": {
+    "path": {
+      "type": "string",
+      "required": true,
+      "description": "Relative path to the memory file (e.g. 'MEMORY.md' or 'memory/2026-02-19.md')"
+    },
+    "from": {
+      "type": "number",
+      "required": false,
+      "description": "Starting line number (1-indexed)"
+    },
+    "lines": {
+      "type": "number",
+      "required": false,
+      "description": "Number of lines to read"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "tts",
+  "label": "Text to Speech",
+  "description": "Convert text to speech audio. Returns a media file path that can be sent as a voice message or audio attachment.",
+  "parameters": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "description": "Text to convert to speech"
+    },
+    "channel": {
+      "type": "string",
+      "required": false,
+      "description": "Channel ID to optimize output format for (e.g. 'telegram')"
+    }
+  }
+}

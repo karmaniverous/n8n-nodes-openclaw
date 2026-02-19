@@ -1,0 +1,28 @@
+{
+  "name": "image",
+  "label": "Image",
+  "description": "Analyze an image using a vision model. Provide an image path or URL and an optional prompt describing what to look for.",
+  "parameters": {
+    "image": {
+      "type": "string",
+      "required": true,
+      "description": "Image file path or URL to analyze"
+    },
+    "prompt": {
+      "type": "string",
+      "required": false,
+      "description": "Instructions for the vision model describing what to analyze",
+      "placeholder": "Describe what you see in this image"
+    },
+    "model": {
+      "type": "string",
+      "required": false,
+      "description": "Override the image analysis model"
+    },
+    "maxBytesMb": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum image size in megabytes"
+    }
+  }
+}

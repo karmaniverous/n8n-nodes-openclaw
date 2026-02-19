@@ -1,0 +1,85 @@
+{
+  "name": "cron",
+  "label": "Cron",
+  "description": "Manage scheduled cron jobs — list, add, update, remove, run, and view run history. Supports reminders and recurring tasks.",
+  "actions": ["status", "list", "add", "update", "remove", "run", "runs", "wake"],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": ["status", "list", "add", "update", "remove", "run", "runs", "wake"],
+      "description": "The cron operation to perform"
+    },
+    "jobId": {
+      "type": "string",
+      "required": false,
+      "description": "The unique identifier of the cron job to target",
+      "displayOptions": { "show": { "action": ["update", "remove", "run", "runs"] } }
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "Alias for jobId",
+      "displayOptions": { "show": { "action": ["update", "remove", "run", "runs"] } }
+    },
+    "job": {
+      "type": "object",
+      "required": false,
+      "description": "Full job definition object for the 'add' action",
+      "displayOptions": { "show": { "action": ["add"] } }
+    },
+    "patch": {
+      "type": "object",
+      "required": false,
+      "description": "Partial job update for the 'update' action",
+      "displayOptions": { "show": { "action": ["update"] } }
+    },
+    "text": {
+      "type": "string",
+      "required": false,
+      "description": "Reminder text content for the job",
+      "displayOptions": { "show": { "action": ["add", "update"] } }
+    },
+    "includeDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Include disabled jobs in the list",
+      "displayOptions": { "show": { "action": ["list"] } }
+    },
+    "mode": {
+      "type": "string",
+      "required": false,
+      "enum": ["now", "next-heartbeat"],
+      "description": "Wake mode — trigger immediately or on next heartbeat",
+      "displayOptions": { "show": { "action": ["wake"] } }
+    },
+    "runMode": {
+      "type": "string",
+      "required": false,
+      "enum": ["due", "force"],
+      "description": "Run mode — only if due, or force regardless of schedule",
+      "displayOptions": { "show": { "action": ["run"] } }
+    },
+    "contextMessages": {
+      "type": "number",
+      "required": false,
+      "description": "Number of recent conversation messages to include as context (0-10)",
+      "displayOptions": { "show": { "action": ["add", "update"] } }
+    },
+    "timeoutMs": {
+      "type": "number",
+      "required": false,
+      "description": "Timeout in milliseconds for the operation"
+    },
+    "gatewayUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway URL"
+    },
+    "gatewayToken": {
+      "type": "string",
+      "required": false,
+      "description": "Override gateway authentication token"
+    }
+  }
+}
