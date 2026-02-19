@@ -98,16 +98,6 @@
       "type": "number",
       "required": false,
       "description": "Timeout in milliseconds for the operation"
-    },
-    "gatewayUrl": {
-      "type": "string",
-      "required": false,
-      "description": "Override gateway URL"
-    },
-    "gatewayToken": {
-      "type": "string",
-      "required": false,
-      "description": "Override gateway authentication token"
     }
   }
 }

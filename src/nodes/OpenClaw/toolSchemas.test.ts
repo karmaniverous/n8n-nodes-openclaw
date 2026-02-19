@@ -36,6 +36,21 @@ describe('toolSchemas', () => {
     expect(tts!.actions).toBeUndefined();
   });
 
+  it('should have splitAsArray on known array fields', () => {
+    const sessionsList = toolSchemas.find((s) => s.name === 'sessions_list');
+    expect(sessionsList!.parameters.kinds.splitAsArray).toBe(true);
+
+    const message = toolSchemas.find((s) => s.name === 'message');
+    expect(message!.parameters.pollOption.splitAsArray).toBe(true);
+  });
+
+  it('should not have gatewayUrl/gatewayToken in any schema', () => {
+    for (const schema of toolSchemas) {
+      expect(schema.parameters).not.toHaveProperty('gatewayUrl');
+      expect(schema.parameters).not.toHaveProperty('gatewayToken');
+    }
+  });
+
   it('should be sorted by label', () => {
     const labels = toolSchemas.map((s) => s.label);
     const sorted = [...labels].sort((a, b) => a.localeCompare(b));

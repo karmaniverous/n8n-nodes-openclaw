@@ -138,11 +138,11 @@
       "displayOptions": { "show": { "action": ["console"] } }
     },
     "paths": {
-      "type": "array",
-      "items": { "type": "string" },
+      "type": "string",
       "required": false,
-      "description": "File paths for upload",
-      "displayOptions": { "show": { "action": ["upload"] } }
+      "description": "File paths for upload (comma-separated)",
+      "displayOptions": { "show": { "action": ["upload"] } },
+      "splitAsArray": true
     },
     "inputRef": {
       "type": "string",

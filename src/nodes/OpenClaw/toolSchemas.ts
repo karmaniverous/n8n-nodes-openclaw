@@ -8,6 +8,8 @@ export interface ToolParameterDef {
   description?: string;
   default?: unknown;
   placeholder?: string;
+  /** If true, the n8n field is a comma-separated string that should be split into an array before sending to the API. */
+  splitAsArray?: boolean;
   displayOptions?: {
     show?: {
       action?: string[];

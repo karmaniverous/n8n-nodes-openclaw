@@ -309,13 +309,19 @@ function buildArgsFromParameters(
         | IDataObject
         | undefined;
       if (value !== undefined && !(typeof value === 'string' && value === '')) {
-        // Parse JSON strings for object types
         if (paramDef.type === 'object' && typeof value === 'string') {
+          // Parse JSON strings for object types
           try {
             args[paramName] = JSON.parse(value) as unknown as IDataObject;
           } catch {
             args[paramName] = value;
           }
+        } else if (paramDef.splitAsArray && typeof value === 'string') {
+          // Split comma-separated strings into arrays
+          args[paramName] = value
+            .split(',')
+            .map((s) => s.trim())
+            .filter((s) => s.length > 0) as unknown as IDataObject;
         } else {
           args[paramName] = value as unknown as IDataObject;
         }

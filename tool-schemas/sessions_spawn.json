@@ -21,31 +21,23 @@
     "model": {
       "type": "string",
       "required": false,
-      "description": "Model override for the sub-agent (e.g. 'anthropic/claude-sonnet-4-20250514')"
+      "description": "Model override for the sub-agent (e.g. 'sonnet', 'opus', or full provider/model ID)"
     },
     "thinking": {
       "type": "string",
       "required": false,
-      "description": "Thinking/reasoning level for the sub-agent (e.g. 'low', 'medium', 'high', 'off')"
+      "description": "Thinking/reasoning level: 'off', 'low', 'medium', or 'high'"
     },
     "runTimeoutSeconds": {
       "type": "number",
       "required": false,
-      "description": "Maximum runtime for the sub-agent in seconds (0 = no limit)",
-      "default": 0
-    },
-    "timeoutSeconds": {
-      "type": "number",
-      "required": false,
-      "description": "Legacy alias for runTimeoutSeconds",
-      "default": 0
+      "description": "Maximum runtime for the sub-agent in seconds (0 = no limit)"
     },
     "cleanup": {
       "type": "string",
       "required": false,
       "enum": ["delete", "keep"],
-      "description": "Whether to delete or keep the sub-agent session after completion",
-      "default": "keep"
+      "description": "Whether to delete or keep the sub-agent session after completion"
     }
   }
 }

@@ -146,11 +146,11 @@
       "displayOptions": { "show": { "action": ["location_get"] } }
     },
     "command": {
-      "type": "array",
-      "items": { "type": "string" },
+      "type": "string",
       "required": false,
-      "description": "Command and arguments to run on the node",
-      "displayOptions": { "show": { "action": ["run"] } }
+      "description": "Command and arguments to run on the node (comma-separated, e.g. 'ls,-la,/tmp')",
+      "displayOptions": { "show": { "action": ["run"] } },
+      "splitAsArray": true
     },
     "cwd": {
       "type": "string",
@@ -159,11 +159,11 @@
       "displayOptions": { "show": { "action": ["run"] } }
     },
     "env": {
-      "type": "array",
-      "items": { "type": "string" },
+      "type": "string",
       "required": false,
-      "description": "Environment variables as KEY=VALUE pairs",
-      "displayOptions": { "show": { "action": ["run"] } }
+      "description": "Environment variables as KEY=VALUE pairs (comma-separated, e.g. 'FOO=bar,BAZ=qux')",
+      "displayOptions": { "show": { "action": ["run"] } },
+      "splitAsArray": true
     },
     "commandTimeoutMs": {
       "type": "number",
@@ -199,16 +199,6 @@
       "type": "number",
       "required": false,
       "description": "General timeout in milliseconds"
-    },
-    "gatewayUrl": {
-      "type": "string",
-      "required": false,
-      "description": "Override gateway URL"
-    },
-    "gatewayToken": {
-      "type": "string",
-      "required": false,
-      "description": "Override gateway authentication token"
     }
   }
 }

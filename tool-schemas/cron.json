@@ -16,29 +16,23 @@
       "description": "The unique identifier of the cron job to target",
       "displayOptions": { "show": { "action": ["update", "remove", "run", "runs"] } }
     },
-    "id": {
-      "type": "string",
-      "required": false,
-      "description": "Alias for jobId",
-      "displayOptions": { "show": { "action": ["update", "remove", "run", "runs"] } }
-    },
     "job": {
       "type": "object",
       "required": false,
-      "description": "Full job definition object for the 'add' action",
+      "description": "Full job definition object — includes name, schedule, payload, sessionTarget, and optional delivery/enabled fields. See OpenClaw docs for schema.",
       "displayOptions": { "show": { "action": ["add"] } }
     },
     "patch": {
       "type": "object",
       "required": false,
-      "description": "Partial job update for the 'update' action",
+      "description": "Partial job update — only include the fields you want to change (e.g. schedule, payload, enabled)",
       "displayOptions": { "show": { "action": ["update"] } }
     },
     "text": {
       "type": "string",
       "required": false,
-      "description": "Reminder text content for the job",
-      "displayOptions": { "show": { "action": ["add", "update"] } }
+      "description": "Wake event text or reminder content",
+      "displayOptions": { "show": { "action": ["wake"] } }
     },
     "includeDisabled": {
       "type": "boolean",
@@ -70,16 +64,6 @@
       "type": "number",
       "required": false,
       "description": "Timeout in milliseconds for the operation"
-    },
-    "gatewayUrl": {
-      "type": "string",
-      "required": false,
-      "description": "Override gateway URL"
-    },
-    "gatewayToken": {
-      "type": "string",
-      "required": false,
-      "description": "Override gateway authentication token"
     }
   }
 }

@@ -29,18 +29,18 @@
       "displayOptions": { "show": { "action": ["write"] } }
     },
     "keys": {
-      "type": "array",
-      "items": { "type": "string" },
+      "type": "string",
       "required": false,
-      "description": "Key tokens to send (e.g. ['Enter', 'Tab'])",
-      "displayOptions": { "show": { "action": ["send-keys"] } }
+      "description": "Key tokens to send (comma-separated, e.g. 'Enter,Tab,a')",
+      "displayOptions": { "show": { "action": ["send-keys"] } },
+      "splitAsArray": true
     },
     "hex": {
-      "type": "array",
-      "items": { "type": "string" },
+      "type": "string",
       "required": false,
-      "description": "Hex-encoded bytes to send",
-      "displayOptions": { "show": { "action": ["send-keys"] } }
+      "description": "Hex-encoded bytes to send (comma-separated, e.g. '0d,0a')",
+      "displayOptions": { "show": { "action": ["send-keys"] } },
+      "splitAsArray": true
     },
     "literal": {
       "type": "string",
