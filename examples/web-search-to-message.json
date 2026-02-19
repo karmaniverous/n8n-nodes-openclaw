@@ -1,0 +1,60 @@
+{
+  "name": "OpenClaw — Web Search → Post Results",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "resource": "web_search",
+        "query": "OpenClaw AI agent framework",
+        "count": 5
+      },
+      "id": "openclaw-1",
+      "name": "Search Web",
+      "type": "CUSTOM.openClaw",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "openClawApi": {
+          "id": "1",
+          "name": "OpenClaw API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "action": "send",
+        "channel": "slack",
+        "target": "general",
+        "message": "=Search results:\n{{ $json.results.map(r => `• ${r.title}: ${r.url}`).join('\\n') }}"
+      },
+      "id": "openclaw-2",
+      "name": "Post Results",
+      "type": "CUSTOM.openClaw",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "openClawApi": {
+          "id": "1",
+          "name": "OpenClaw API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Search Web", "type": "main", "index": 0 }]]
+    },
+    "Search Web": {
+      "main": [[{ "node": "Post Results", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

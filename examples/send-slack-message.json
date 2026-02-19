@@ -1,5 +1,5 @@
 {
-  "name": "Test OpenClaw sessions_list",
+  "name": "OpenClaw — Send Slack Message",
   "nodes": [
     {
       "parameters": {},
@@ -11,35 +11,29 @@
     },
     {
       "parameters": {
-        "resource": "sessions_list"
+        "resource": "message",
+        "action": "send",
+        "channel": "slack",
+        "target": "general",
+        "message": "Hello from n8n via OpenClaw! 🎩"
       },
       "id": "openclaw-1",
-      "name": "OpenClaw",
+      "name": "Send to Slack",
       "type": "CUSTOM.openClaw",
       "typeVersion": 1,
       "position": [450, 300],
       "credentials": {
         "openClawApi": {
-          "id": "test-cred",
-          "name": "OpenClaw Test"
+          "id": "1",
+          "name": "OpenClaw API"
         }
       }
     }
   ],
   "connections": {
     "Manual Trigger": {
-      "main": [
-        [
-          {
-            "node": "OpenClaw",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Send to Slack", "type": "main", "index": 0 }]]
     }
   },
-  "settings": {
-    "executionOrder": "v1"
-  }
+  "settings": { "executionOrder": "v1" }
 }

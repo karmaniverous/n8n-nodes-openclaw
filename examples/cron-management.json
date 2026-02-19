@@ -1,0 +1,59 @@
+{
+  "name": "OpenClaw — Cron Job Management",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "resource": "cron",
+        "action": "list",
+        "includeDisabled": true
+      },
+      "id": "openclaw-1",
+      "name": "List All Cron Jobs",
+      "type": "CUSTOM.openClaw",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "openClawApi": {
+          "id": "1",
+          "name": "OpenClaw API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "cron",
+        "action": "run",
+        "jobId": "={{ $json.id }}",
+        "runMode": "force"
+      },
+      "id": "openclaw-2",
+      "name": "Force Run Job",
+      "type": "CUSTOM.openClaw",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "openClawApi": {
+          "id": "1",
+          "name": "OpenClaw API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "List All Cron Jobs", "type": "main", "index": 0 }]]
+    },
+    "List All Cron Jobs": {
+      "main": [[{ "node": "Force Run Job", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}
