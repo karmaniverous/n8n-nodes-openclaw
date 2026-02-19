@@ -1,0 +1,45 @@
+{
+  "name": "Test OpenClaw sessions_list",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "resource": "sessions_list"
+      },
+      "id": "openclaw-1",
+      "name": "OpenClaw",
+      "type": "CUSTOM.openClaw",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "openClawApi": {
+          "id": "test-cred",
+          "name": "OpenClaw Test"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "OpenClaw",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
