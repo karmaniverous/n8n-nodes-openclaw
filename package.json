@@ -97,15 +97,15 @@
         "npm run knip",
         "npm run build"
       ],
-      "before:npm:release": [
-        "npx auto-changelog -p",
-        "npm run docs",
-        "git add -A"
-      ],
       "after:release": [
         "git switch -c release/${version}",
         "git push -u origin release/${version}",
         "git switch ${branchName}"
+      ],
+      "after:bump": [
+        "npx auto-changelog -p",
+        "npm run docs",
+        "git add CHANGELOG.md"
       ]
     },
     "npm": {
